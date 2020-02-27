@@ -3,20 +3,16 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
-var person;
+let  person;
 
 function app(people){
 
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-      // TODO: search by name
-          
-      searchByName(person);
-      mainMenu(person);
-        
-      
+      displayPerson(searchByName(people));
       break;
+
     case 'no':
       // TODO: search by traits
       break;
@@ -63,14 +59,14 @@ function searchByName(people){
    var firstName = promptFor("What is the person's first name?", chars);
    var lastName = promptFor("What is the person's last name?", chars);
 
-   let filteredPeople = data.filter(function(el) {
+   let filteredPeople = people.filter(function(el) {
        if(el.firstName === firstName && el.lastName === lastName) {
         return el; 
       }
     
   });
 
-  person = filteredPeople;
+  return filteredPeople[0];
 
 }
 
@@ -82,10 +78,17 @@ function displayPeople(people){
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
+
   var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "D.O.B.: " + person.dob + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Eyecolor: " + person.eyeColor + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
+
+
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
