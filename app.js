@@ -9,6 +9,10 @@ function app(people){
   switch(searchType){
     case 'yes':
       // TODO: search by name
+          
+      data.filter(searchByName());
+      mainMenu(firstName,lastName);
+        
       
       break;
     case 'no':
@@ -35,13 +39,13 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-      // TODO: get person's info
+      // TODO: get person's info 15 points
       break;
     case "family":
-      // TODO: get person's family
+      // TODO: get person's family 20 points
       break;
     case "descendants":
-      // TODO: get person's descendants
+      // TODO: get person's descendants 25 points
       break;
     case "restart":
       app(people); // restart
@@ -57,7 +61,7 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  let filteredPeople = people.filter(function(el) {
+  let filteredPeople = data.filter(function(el) {
     if(el.firstName === firstName && el.lastName === lastName) {
       return el;
     }
