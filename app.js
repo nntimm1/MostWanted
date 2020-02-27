@@ -3,6 +3,8 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
+var person;
+
 function app(people){
 
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
@@ -10,8 +12,8 @@ function app(people){
     case 'yes':
       // TODO: search by name
           
-      data.filter(searchByName());
-      mainMenu(firstName,lastName);
+      searchByName(person);
+      mainMenu(person);
         
       
       break;
@@ -58,16 +60,17 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
-  var firstName = promptFor("What is the person's first name?", chars);
-  var lastName = promptFor("What is the person's last name?", chars);
+   var firstName = promptFor("What is the person's first name?", chars);
+   var lastName = promptFor("What is the person's last name?", chars);
 
-  let filteredPeople = data.filter(function(el) {
-    if(el.firstName === firstName && el.lastName === lastName) {
-      return el;
-    }
+   let filteredPeople = data.filter(function(el) {
+       if(el.firstName === firstName && el.lastName === lastName) {
+        return el; 
+      }
+    
   });
 
-  // TODO: What to do with filteredPeople?
+  person = filteredPeople;
 
 }
 
