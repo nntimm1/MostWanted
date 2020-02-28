@@ -44,6 +44,7 @@ function mainMenu(person, people){
 
     case "family":
 
+      displayFamily(people, person)
       // TODO: get person's family 20 points
       // Children array, Parents Array, currentSpouse 
 
@@ -77,11 +78,11 @@ function searchByName(people){
 }
 
 function searchByTrait(people){
-  var gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
-  var dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
+  let gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
+  let dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
   let height = promptFor("What is the person's height? \n If not known enter unknown.", chars); // + in front of prompt turns result into number
   let weight = promptFor("What is the person's weight? \n If not known enter unknown.", chars);
-  var eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
+  let eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
 
   let filteredPeople = people;
     
@@ -117,28 +118,16 @@ function displayFamily(people, person){
   let child = people;
   
   
-  familyInfo = familyInfo.filter(function(el)){
-    if (el.parents.length > 0) {
-      for (i = 0; i < el.parents.length; i++){
-
-         return el;
-      }
-    }
-    if (el.currentSpouse != null){
-        return el.currentSpouse;
-    }
-    if (el.child.parents = person.id ){
-      return el;
-    }
-
-    familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
-    familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
-    familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
-    alert(familyInfo);
-   
-  }
-  
-              
+  familyInfo = familyInfo.filter(function(el) {
+    if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+    if (el.currentSpouse != null){return el.currentSpouse;}
+    if (el.child.parents = person.id ){return el;}
+}
+familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
+familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
+familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
+alert(familyInfo);
+});
 }
 
 // function that prompts and validates user input
@@ -158,3 +147,4 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
