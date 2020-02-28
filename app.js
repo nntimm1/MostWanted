@@ -15,11 +15,9 @@ function app(people){
       break;
 
     case 'no':
-
       mainMenu(searchByTrait(people));
-
-
       break;
+
     default:
       alert("Invalid input. Please try again!");
       app(people); // restart app
@@ -41,32 +39,29 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-
-
         displayPerson(person)
-
       break;
+
     case "family":
-
-         alert(familyInfo)
       // TODO: get person's family 20 points
-
       // Children array, Parents Array, currentSpouse 
-      
 
       break;
-    case "descendants":
 
+    case "descendants":
       // TODO: get person's descendants 25 points
       // has to use recursion
       // parents with parents 
 
       break;
+
     case "restart":
       app(people); // restart
       break;
+
     case "quit":
       return; // stop execution
+
     default:
       return mainMenu(person, people); // ask again
   }
@@ -76,11 +71,7 @@ function searchByName(people){
    var firstName = promptFor("What is the person's first name?", chars);
    var lastName = promptFor("What is the person's last name?", chars);
 
-   let filteredPeople = people.filter(function(el) {
-       if(el.firstName === firstName && el.lastName === lastName) {
-        return el; 
-      }
-  });
+   let filteredPeople = people.filter(function(el) {if(el.firstName === firstName && el.lastName === lastName) {return el;}});
   return filteredPeople[0];
 }
 
@@ -104,13 +95,10 @@ function searchByTrait(people){
 
 // alerts a list of people
 function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
+  alert(people.map(function(person){return person.firstName + " " + person.lastName;}).join("\n"));
 }
 
 function displayPerson(person){
-
   personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "Gender: " + person.gender + "\n";
