@@ -44,21 +44,15 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
 
-<<<<<<< HEAD
-=======
+
         alert( personInfo)
-      
->>>>>>> ab7b48d16c5b08b18c045597b1a9e37b1518a9fb
       // TODO: get person's info 15 points
           // call displayPerson function 
 
       break;
     case "family":
 
-<<<<<<< HEAD
-=======
          alert(familyInfo)
->>>>>>> ab7b48d16c5b08b18c045597b1a9e37b1518a9fb
       // TODO: get person's family 20 points
 
       // Children array, Parents Array, currentSpouse 
