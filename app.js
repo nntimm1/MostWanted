@@ -3,7 +3,8 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
-let  person;
+
+
 
 function app(people){
 
@@ -14,7 +15,12 @@ function app(people){
       break;
 
     case 'no':
+
       // TODO: search by traits
+      // gender, height, weight, eyeColor, date of birth
+      displayPeople(searchByTrait(people));
+
+
       break;
     default:
       alert("Invalid input. Please try again!");
@@ -37,13 +43,25 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
+
       // TODO: get person's info 15 points
+          // call displayPerson function 
+
       break;
     case "family":
+
       // TODO: get person's family 20 points
+
+      // Children array, Parents Array, currentSpouse 
+      
+
       break;
     case "descendants":
+
       // TODO: get person's descendants 25 points
+      // has to use recursion
+      // parents with parents 
+
       break;
     case "restart":
       app(people); // restart
@@ -63,11 +81,24 @@ function searchByName(people){
        if(el.firstName === firstName && el.lastName === lastName) {
         return el; 
       }
-    
   });
-
   return filteredPeople[0];
+}
 
+function searchByTrait(people){
+  var gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
+  var dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
+  let height = +promptFor("What is the person's height? \n If not known enter unknown.", chars); // + in front of prompt turns result into number
+  let weight = +promptFor("What is the person's weight? \n If not known enter unknown.", chars);
+  var eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
+
+
+  let filteredPeople = people.filter(function(el) {
+      if(el.gender === gender && el.dob === dob && el.height === height && el.weight === weight && el.eyeColor === eyeColor) {
+       return el; 
+     }
+ });
+ return filteredPeople[0];
 }
 
 // alerts a list of people
@@ -85,11 +116,8 @@ function displayPerson(person){
   personInfo += "D.O.B.: " + person.dob + "\n";
   personInfo += "Height: " + person.height + "\n";
   personInfo += "Weight: " + person.weight + "\n";
-  personInfo += "Eyecolor: " + person.eyeColor + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
   personInfo += "Occupation: " + person.occupation + "\n";
-
-
-  // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
 
