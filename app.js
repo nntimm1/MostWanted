@@ -43,6 +43,7 @@ function mainMenu(person, people){
       break;
 
     case "family":
+
       // TODO: get person's family 20 points
       // Children array, Parents Array, currentSpouse 
 
@@ -110,11 +111,36 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-function displayFamily(person){
-  var familyInfo = "Parents" + person.parents.toString + "\n";
-  familyInfo = "Current Spouse" + person.currentSpouse + "\n";
+function displayFamily(people, person){
 
+  let familyInfo = people;
+  let child = people;
+  
+  
+  familyInfo = familyInfo.filter(function(el)){
+    if (el.parents.length > 0) {
+      for (i = 0; i < el.parents.length; i++){
+
+         return el;
+      }
+    }
+    if (el.currentSpouse != null){
+        return el.currentSpouse;
+    }
+    if (el.child.parents = person.id ){
+      return el;
+    }
+
+    familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
+    familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
+    familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
+    alert(familyInfo);
+   
+  }
+  
+              
 }
+
 // function that prompts and validates user input
 function promptFor(question, callback){
   do{
