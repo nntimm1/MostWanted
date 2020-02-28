@@ -15,11 +15,9 @@ function app(people){
       break;
 
     case 'no':
-
       mainMenu(searchByTrait(people));
-
-
       break;
+
     default:
       alert("Invalid input. Please try again!");
       app(people); // restart app
@@ -41,32 +39,31 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-
-
         displayPerson(person)
-
-
       break;
+
     case "family":
 
+      displayFamily(people, person)
       // TODO: get person's family 20 points
-
       // Children array, Parents Array, currentSpouse 
-      
 
       break;
-    case "descendants":
 
+    case "descendants":
       // TODO: get person's descendants 25 points
       // has to use recursion
       // parents with parents 
 
       break;
+
     case "restart":
       app(people); // restart
       break;
+
     case "quit":
       return; // stop execution
+
     default:
       return mainMenu(person, people); // ask again
   }
@@ -76,20 +73,16 @@ function searchByName(people){
    var firstName = promptFor("What is the person's first name?", chars);
    var lastName = promptFor("What is the person's last name?", chars);
 
-   let filteredPeople = people.filter(function(el) {
-       if(el.firstName === firstName && el.lastName === lastName) {
-        return el; 
-      }
-  });
+   let filteredPeople = people.filter(function(el) {if(el.firstName === firstName && el.lastName === lastName) {return el;}});
   return filteredPeople[0];
 }
 
 function searchByTrait(people){
-  var gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
-  var dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
+  let gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
+  let dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
   let height = promptFor("What is the person's height? \n If not known enter unknown.", chars); // + in front of prompt turns result into number
   let weight = promptFor("What is the person's weight? \n If not known enter unknown.", chars);
-  var eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
+  let eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
 
   let filteredPeople = people;
     
@@ -104,13 +97,10 @@ function searchByTrait(people){
 
 // alerts a list of people
 function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
+  alert(people.map(function(person){return person.firstName + " " + person.lastName;}).join("\n"));
 }
 
 function displayPerson(person){
-
   personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "Gender: " + person.gender + "\n";
@@ -129,30 +119,15 @@ function displayFamily(people, person){
   
   
   familyInfo = familyInfo.filter(function(el) {
-    if (el.parents.length > 0) {
-      for (i = 0; i < el.parents.length; i++){
-
-         return el;
-      }
-    }
-    if (el.currentSpouse != null){
-        return el.currentSpouse;
-    }
-    if (el.child.parents = person.id ){
-      return el;
-    }
-  
-  
-
-    familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
-    familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
-    familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
-    alert(familyInfo);
-  }
-   
-  
-  
-              
+    if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+    if (el.currentSpouse != null){return el.currentSpouse;}
+    if (el.child.parents = person.id ){return el;}
+}
+familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
+familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
+familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
+alert(familyInfo);
+});
 }
 
 // function that prompts and validates user input
@@ -172,3 +147,4 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
