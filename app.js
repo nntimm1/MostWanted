@@ -37,9 +37,14 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
+
+        alert( personInfo)
+      
       // TODO: get person's info 15 points
       break;
     case "family":
+
+         alert(familyInfo)
       // TODO: get person's family 20 points
       break;
     case "descendants":
@@ -93,6 +98,11 @@ function displayPerson(person){
   alert(personInfo);
 }
 
+function displayFamily(person){
+  var familyInfo = "Parents" + person.parents.toString + "\n";
+  familyInfo = "Current Spouse" + person.currentSpouse + "\n";
+
+}
 // function that prompts and validates user input
 function promptFor(question, callback){
   do{
