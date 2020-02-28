@@ -16,9 +16,7 @@ function app(people){
 
     case 'no':
 
-      // TODO: search by traits
-      // gender, height, weight, eyeColor, date of birth
-      displayPeople(searchByTrait(people));
+      mainMenu(searchByTrait(people));
 
 
       break;
@@ -44,15 +42,12 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
 
-      
-      
-      // TODO: get person's info 15 points
-          // call displayPerson function 
+
+        displayPerson(person)
+
 
       break;
     case "family":
-
-         
 
       // TODO: get person's family 20 points
 
@@ -92,16 +87,18 @@ function searchByName(people){
 function searchByTrait(people){
   var gender = promptFor("What is the person's gender? \n If not known enter unknown.", chars);
   var dob = promptFor("What is the person's date of birth? \n If not known enter unknown.", chars);
-  let height = +promptFor("What is the person's height? \n If not known enter unknown.", chars); // + in front of prompt turns result into number
-  let weight = +promptFor("What is the person's weight? \n If not known enter unknown.", chars);
+  let height = promptFor("What is the person's height? \n If not known enter unknown.", chars); // + in front of prompt turns result into number
+  let weight = promptFor("What is the person's weight? \n If not known enter unknown.", chars);
   var eyeColor = promptFor("What is the person's eye color? \n If not known enter unknown.", chars);
 
+  let filteredPeople = people;
+    
+  filteredPeople = filteredPeople.filter(function(el) {if(gender == "unknown"){return filteredPeople} else if (el.gender == gender) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(dob == "unknown"){return filteredPeople} else if (el.dob == dob) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(height == "unknown"){return filteredPeople} else if (el.height == height) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(weight == "unknown"){return filteredPeople} else if (el.weight == weight) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(eyeColor == "unknown"){return filteredpeople} else if (el.eyeColor == eyeColor) {return el;}});
 
-  let filteredPeople = people.filter(function(el) {
-      if(el.gender === gender && el.dob === dob && el.height === height && el.weight === weight && el.eyeColor === eyeColor) {
-       return el; 
-     }
- });
  return filteredPeople[0];
 }
 
@@ -114,7 +111,7 @@ function displayPeople(people){
 
 function displayPerson(person){
 
-  var personInfo = "First Name: " + person.firstName + "\n";
+  personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "Gender: " + person.gender + "\n";
   personInfo += "D.O.B.: " + person.dob + "\n";
