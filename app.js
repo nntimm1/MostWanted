@@ -128,7 +128,7 @@ function displayFamily(people, person){
   let child = people;
   
   
-  familyInfo = familyInfo.filter(function(el)){
+  familyInfo = familyInfo.filter(function(el) {
     if (el.parents.length > 0) {
       for (i = 0; i < el.parents.length; i++){
 
@@ -141,13 +141,16 @@ function displayFamily(people, person){
     if (el.child.parents = person.id ){
       return el;
     }
+  
+  
 
     familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
     familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
     familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
     alert(familyInfo);
-   
   }
+   
+  
   
               
 }
