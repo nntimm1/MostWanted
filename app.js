@@ -119,13 +119,13 @@ function displayFamily(people, person){
   
   
   familyInfo = familyInfo.filter(function(el) {
-    if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+    if(el.parents.length == person.id) {for (i = 0; i < parents.length; i++){return el;}
     if (el.currentSpouse != null){return el.currentSpouse;}
     if (el.child.parents = person.id ){return el;}
 }
-familyInfo =  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
-familyInfo =  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
-familyInfo =  "Children: "  + child.firstName + " " + child.lastName + "\n";
+familyInfo +=  "Parent: "  + parents.firstName + " " + parents.lastName + "\n";
+familyInfo +=  "Current Spouse: "  + currentSpouse.firstName + " " + parent.lastName + "\n";
+familyInfo +=  "Children: "  + child.firstName + " " + child.lastName + "\n";
 alert(familyInfo);
 });
 }
