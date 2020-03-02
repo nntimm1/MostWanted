@@ -119,7 +119,7 @@ function displayFamily(person, people){
   
   
   familyInfo.filter(function(el) {
-    if(el.parents.id == person.parents.id) {return true;} else{return false;}});}
+    if(person.parents[0] == el.id) {return true;} else{return false;}});}
     
     // if (el.currentSpouse != null){return el.currentSpouse;}
     // if (el.child.parents = person.id ){return el;}
