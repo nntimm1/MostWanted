@@ -86,11 +86,11 @@ function searchByTrait(people){
 
   let filteredPeople = people;
     
-  filteredPeople = filteredPeople.filter(function(el) {if(gender == "unknown"){return filteredPeople} else if (el.gender == gender) {return el;}});
-  filteredPeople = filteredPeople.filter(function(el) {if(dob == "unknown"){return filteredPeople} else if (el.dob == dob) {return el;}});
-  filteredPeople = filteredPeople.filter(function(el) {if(height == "unknown"){return filteredPeople} else if (el.height == height) {return el;}});
-  filteredPeople = filteredPeople.filter(function(el) {if(weight == "unknown"){return filteredPeople} else if (el.weight == weight) {return el;}});
-  filteredPeople = filteredPeople.filter(function(el) {if(eyeColor == "unknown"){return filteredpeople} else if (el.eyeColor == eyeColor) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(gender == "unknown"){return el} else if (el.gender == gender) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(dob == "unknown"){return el} else if (el.dob == dob) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(height == "unknown"){return el} else if (el.height == height) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(weight == "unknown"){return el} else if (el.weight == weight) {return el;}});
+  filteredPeople = filteredPeople.filter(function(el) {if(eyeColor == "unknown"){return el} else if (el.eyeColor == eyeColor) {return el;}});
 
  return filteredPeople[0];
 }
@@ -118,9 +118,15 @@ function displayFamily(person, people){
   
   
   
+<<<<<<< HEAD
+  familyInfo = familyInfo.filter(function(el) {
+    if(person.parents(contains.id) == people.id) {return true;} else{return false;}
+    // if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+=======
   familyInfo.filter(function(el) {
     if(person.parents[0] == el.id) {return true;} else{return false;}});}
     
+>>>>>>> 0c888b51db546e46ed360e703cfe4aea453acf93
     // if (el.currentSpouse != null){return el.currentSpouse;}
     // if (el.child.parents = person.id ){return el;}
 
