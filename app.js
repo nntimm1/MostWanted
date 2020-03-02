@@ -51,6 +51,7 @@ function mainMenu(person, people){
       break;
 
     case "descendants":
+      displayDescendants(person, people)
       // TODO: get person's descendants 25 points
       // has to use recursion
       // parents with parents 
@@ -113,23 +114,35 @@ function displayPerson(person){
 }
 
 function displayFamily(person, people){
-
-  let familyInfo = people;
   
+  let familyInfo = people;  
 
-  familyInfo.filter(function(el) {
-    if(person.parents[0] == el.id){
-      // for (i = 0; i < 0; i++){
-        return el;
-    }});
+  familyInfo = people.filter(function(el){
+    if(el.currentSpouse === person.id){
+      return el;}
+      else{
+        return false;
+      }});
+      return familyInfo;
+
   }
-  
-
     
+     // if (el.currentSpouse != null){return el.currentSpouse;}
+    //  if (el.child.parents = person.id ){return el;}
+function displayDescendants(person, people){
 
-    // if (el.currentSpouse != null){return el.currentSpouse;}
-    // if (el.child.parents = person.id ){return el;}
+let familyDescendants = [];
 
+  familyDescendants = people.filter(function(el){
+  if(el.parents.length === 0){
+    return false;}
+    else if(el.parents[0] === person.id || el.parents[1] === person.id){
+      return true
+
+    }});
+    return familyDescendants;
+}
+      
 
 // function that prompts and validates user input
 function promptFor(question, callback){
@@ -148,4 +161,3 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
-
