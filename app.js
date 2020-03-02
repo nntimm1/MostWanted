@@ -45,16 +45,11 @@ function mainMenu(person, people){
     case "family":
 
       displayFamily(person, people)
-      // TODO: get person's family 20 points
-      // Children array, Parents Array, currentSpouse 
 
       break;
 
     case "descendants":
-      displayDescendants(person, people)
-      // TODO: get person's descendants 25 points
-      // has to use recursion
-      // parents with parents 
+      displayPeople(displayDescendants(person, people),people)
 
       break;
 
@@ -124,11 +119,8 @@ function displayFamily(person, people){
         return false;
       }});
       return familyInfo;
-
   }
-    
-     // if (el.currentSpouse != null){return el.currentSpouse;}
-    //  if (el.child.parents = person.id ){return el;}
+
 function displayDescendants(person, people){
 
 let familyDescendants = [];
