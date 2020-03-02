@@ -118,18 +118,18 @@ function displayFamily(person, people){
   
   
   
+<<<<<<< HEAD
   familyInfo = familyInfo.filter(function(el) {
     if(person.parents(contains.id) == people.id) {return true;} else{return false;}
     // if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+=======
+  familyInfo.filter(function(el) {
+    if(el.parents.id == person.parents.id) {return true;} else{return false;}});}
+    
+>>>>>>> 0c888b51db546e46ed360e703cfe4aea453acf93
     // if (el.currentSpouse != null){return el.currentSpouse;}
     // if (el.child.parents = person.id ){return el;}
-});}
-// familyInfo +=  "Parent: "  + el.parents.firstName + " " + el.parents.lastName + "\n";
-// familyInfo +=  "Current Spouse: "  + el.currentSpouse.firstName + " " + el.currentSpouse.lastName + "\n";
-// familyInfo +=  "Children: "  + child.firstName + " " + child.lastName + "\n";
-// alert(familyInfo);
-// });
-// }
+
 
 // function that prompts and validates user input
 function promptFor(question, callback){
