@@ -44,7 +44,7 @@ function mainMenu(person, people){
 
     case "family":
 
-      displayFamily(person, people)
+      displayPeople(displayFamily(person, people),people)
       // TODO: get person's family 20 points
       // Children array, Parents Array, currentSpouse 
 
@@ -119,7 +119,7 @@ function displayFamily(person, people){
 
   familyInfo = people.filter(function(el){
     if(el.currentSpouse === person.id){
-      return el;}
+      return true;}
       else{
         return false;
       }});
