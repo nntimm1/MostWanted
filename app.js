@@ -116,7 +116,14 @@ function displayFamily(person, people){
 
   let familyInfo = people;  
   familyInfo = familyInfo.filter(function(el) {
-    if(person.parents(contains.id) == people.id) {return true;} else{return false;}
+    // if(el.parents.length > 0) {for (i = 0; i < el.parents.length; i++){return el;}
+
+  familyInfo.filter(function(el) {
+    if(person.parents[0] == el.id) {return true;} else{return false;}});}
+    
+   // if (el.currentSpouse != null){return el.currentSpouse;}
+    // if (el.child.parents = person.id ){return el;}
+
 
 
 // function that prompts and validates user input
